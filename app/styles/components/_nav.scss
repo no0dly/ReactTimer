@@ -1,0 +1,22 @@
+.top-nav {
+    background-color: $nav-background;
+
+    .color-black {
+        background: $nav-background;
+    }
+    .nav-title {
+        color: $nav-text-color;
+    }
+    .nav-author {
+        color: $nav-text-color;
+        font-weight: bold;
+    }
+
+    .nav-author__link {
+        font-weight: bold;
+    }
+
+    .active {
+        font-weight: bold;
+    }
+}
