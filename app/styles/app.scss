@@ -4,4 +4,10 @@
 @import "base/_variables";
 
 //nav styles
-@import "components/_nav";
+@import "components/nav";
+
+@import "components/clock";
+
+.page-title {
+    margin-bottom: 5rem;
+}
