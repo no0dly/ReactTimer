@@ -19,7 +19,7 @@ describe('Countdown form testion',() => {
         countdownForm.refs.seconds.value = 'ASD';
         TestUtils.Simulate.submit($el.closest('form')[0]);
 
-        expect(spy).toNotHaveBeenCalled('ASD');
+        expect(spy).toNotHaveBeenCalled();
     });
 
     it('should call onSetCountdown if valid seconds entered', () => {
