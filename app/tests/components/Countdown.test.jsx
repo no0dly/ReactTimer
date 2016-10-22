@@ -11,8 +11,8 @@ describe('Countdown',() => {
         expect(Countdown).toExist();
     });
 
-    describe('handleSetCoundown', (done) => {
-        it('should set state to started and countdownStatus', () => {
+    describe('handleSetCoundown', () => {
+        it('should set state to started and countdown', (done) => {
             var countdown = TestUtils.renderIntoDocument(<Countdown />);
 
             countdown.handleSetCoundown(10);
@@ -24,10 +24,10 @@ describe('Countdown',() => {
                 expect(countdown.state.count).toBe(9);
                 expect(countdown.state.countdownStatus).toBe('started');
                 done();
-            });
+            }, 1001);
         });
 
-        it('shouldn\'t show negative numbers', () => {
+        it('shouldn\'t show negative numbers', (done) => {
             var countdown = TestUtils.renderIntoDocument(<Countdown />);
 
             countdown.handleSetCoundown(1);
@@ -38,7 +38,7 @@ describe('Countdown',() => {
             }, 3001);
         });
 
-        it('Should pause coundown and set pause state', () => {
+        it('Should pause coundown and set pause state', (done) => {
             var countdown = TestUtils.renderIntoDocument(<Countdown />);
 
             countdown.handleSetCoundown(3);
@@ -46,11 +46,12 @@ describe('Countdown',() => {
 
             setTimeout( () => {
                 expect(countdown.state.count).toBe(3);
-                expect(countdown.state.handleStatusChange).toBe('paused');
+                expect(countdown.state.countdownStatus).toBe('paused');
+                done();
             }, 1001);
         });
 
-        it('Should drop countdown and set stopped state', () => {
+        it('Should drop countdown and set stopped state', (done) => {
             var countdown = TestUtils.renderIntoDocument(<Countdown />);
 
             countdown.handleSetCoundown(3);
@@ -58,7 +59,8 @@ describe('Countdown',() => {
 
             setTimeout( () => {
                 expect(countdown.state.count).toBe(0);
-                expect(countdown.state.handleStatusChange).toBe('stopped');
+                expect(countdown.state.countdownStatus).toBe('stopped');
+                done();
             }, 1001);
         });
     });
