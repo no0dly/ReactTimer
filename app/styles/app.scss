@@ -1,7 +1,10 @@
 //base styles
-
-//variables
 @import "base/_variables";
+
+//foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
 
 //nav styles
 @import "components/nav";
